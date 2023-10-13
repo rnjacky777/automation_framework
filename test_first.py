@@ -4,14 +4,14 @@ import core_framework.core_framework as core_framework
 from validator.home_page_validator import HomePageValidator
 from page.home_page import HomePage
 from script.home_page_script import HomePageScript
-from script.cart_page import CartPageScript
+from page.cart_page import CartPage
 
-@pytest.mark.usefixture("init_driver")
+# @pytest.mark.usefixture("init_driver")
 class TestFirst(TestCase):
     def setUp(self):
         self.home_page = HomePage()
         self.home_page_script = HomePageScript()
-        self.cart_page_script = CartPageScript()
+        self.cart_page_script = CartPage()
         self.home_page_validator = HomePageValidator()
 
     def tearDown(self):

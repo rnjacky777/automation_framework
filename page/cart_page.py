@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from core_framework.core_framework import CoreDriver
 
 
-class CartPageScript(CoreDriver):
+class CartPage(CoreDriver):
 
     def __init__(self) -> None:
         super().__init__()
