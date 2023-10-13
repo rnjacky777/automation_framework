@@ -1,6 +1,6 @@
 import json
 from selenium.webdriver.common.by import By
-from core_framework import CoreDriver
+from core_framework.core_framework import CoreDriver
 
 
 class CartPageScript(CoreDriver):
@@ -9,7 +9,8 @@ class CartPageScript(CoreDriver):
         super().__init__()
     def select_all_checkbox(self):
         xpath = "((//div[contains(@class,'stardust-checkbox__box')]))[1]"
-        return self.get_element(xpath)
+        name = "select_all_checkbox"
+        return self.get_element(name,xpath)
 
 
 

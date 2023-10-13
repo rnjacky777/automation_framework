@@ -1,24 +1,28 @@
-import core_framework
-from script.home_page import HomePageScript
+from unittest import TestCase
+import core_framework.core_framework as core_framework
+from validator.home_page_validator import HomePageValidator
+from page.home_page import HomePage
+from script.home_page_script import HomePageScript
 from script.cart_page import CartPageScript
-import time
-def test_first_testcase():
-    core_framework.CoreDriver.driver= core_framework.init_driver()
-    a = HomePageScript()
-    b = CartPageScript()
-    try:
-        a.go_to_homepage()
-        a.load_cookie()
-        a.page_refresh()
-        a.wait_page_loading()
-        a.close_pop_up_banner()
-        a.cart_icon().click()
-        b.select_all_checkbox().click()
-    except:
-        core_framework.CoreDriver.driver.close()
-        raise ValueError
 
-    # time.sleep(5)
-    
-    # a.search_button().click()
+class TestFirst(TestCase):
+    def setUp(self):
+        core_framework.CoreDriver.driver= core_framework.init_driver()
+        self.home_page = HomePage()
+        self.home_page_script = HomePageScript()
+        self.cart_page_script = CartPageScript()
+        self.home_page_validator = HomePageValidator()
+
+    def tearDown(self):
+        core_framework.CoreDriver.driver.quit()
+    def test_first_testcase(self):
+        self.home_page_script.go_to_homepage()
+        # self.home_page_script.load_cookie()
+        # self.home_page_script.page_refresh()
+        self.home_page_script.wait_page_loading()
+        self.home_page_script.close_pop_up_banner()
+        self.home_page_validator.check_search_button_exist()
+        # self.home_page.cart_icon().click()
+        # self.cart_page_script.select_all_checkbox().click()
+
     
