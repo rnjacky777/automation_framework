@@ -7,14 +7,14 @@ from script.home_page_script import HomePageScript
 from page.cart_page import CartPage
 
 # @pytest.mark.usefixture("init_driver")
-class TestFirst(TestCase):
-    def setUp(self):
+class TestFirst():
+    def setup_method(self):
         self.home_page = HomePage()
         self.home_page_script = HomePageScript()
         self.cart_page_script = CartPage()
         self.home_page_validator = HomePageValidator()
 
-    def tearDown(self):
+    def teardown_method(self):
         # core_framework.CoreDriver.driver.quit()
         pass
 
