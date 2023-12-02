@@ -6,6 +6,7 @@ from page.home_page import HomePage
 from script.home_page_script import HomePageScript
 from page.cart_page import CartPage
 
+
 # @pytest.mark.usefixture("init_driver")
 class TestFirst():
     def setup_method(self):
@@ -15,7 +16,6 @@ class TestFirst():
         self.home_page_validator = HomePageValidator()
 
     def teardown_method(self):
-        # core_framework.CoreDriver.driver.quit()
         pass
 
     # @pytest.mark.usefixture("init_driver")

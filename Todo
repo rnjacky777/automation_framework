@@ -1,3 +1,7 @@
 - Teardown and initial setup 
 - Allure log
 - Different account
+- Testlink
+- Jenkins
+- Add slack or discord notification
+- 底層都用decorator，變數做成property
