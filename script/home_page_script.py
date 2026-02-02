@@ -1,29 +1,16 @@
-import json,time
-from selenium.webdriver.common.by import By
-from core_framework.core_framework import CoreDriver
+import json
+from core_framework.base_page import BasePage
 
+class HomePageScript(BasePage):
+    def __init__(self, driver):
+        super().__init__(driver)
+        with open("pages/home_page.json", "r", encoding="utf-8") as f:
+            self.data = json.load(f)
 
-class HomePageScript(CoreDriver):
+    def go_to_home_page_by_url(self):
+        self.driver.get("https://m.twitch.tv/")
 
-    def __init__(self) -> None:
-        super().__init__()
+    def close_popup_and_click_search(self):
+        self.click_element("close_button")
+        self.click_element("search_button")
 
-    def go_to_homepage(self):
-        self.driver.get("https://shopee.tw/")
-    
-    def check_pop_up_banner(self):
-        name = "pop_up_banner"
-        xpath = "//shopee-banner-popup-stateful"
-        try:
-            self.get_element(name,xpath)
-            return True
-        except:
-            return False
-
-    def close_pop_up_banner(self):
-        try:
-            if self.check_pop_up_banner():
-                self.driver.execute_script('document.querySelector("shopee-banner-popup-stateful").shadowRoot.querySelector(".shopee-popup__close-btn").click()')
-                self.log.info('close pop_up_banner')
-        except:
-            self.log.info('Does not find pop_up_banner')

@@ -1,4 +1,12 @@
-__pycache__
-.venv
-.pytest_cache
-.vscode
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+allure-results/
+allure-report/
+*.png
+
+.env
+config.json
+xpath.json

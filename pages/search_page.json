@@ -1,0 +1,6 @@
+{
+    "input_button": "//div[contains(@class, 'AoXTY')]//input",
+    "title1_button": "(//div[contains(@class, 'jNFDac')])[1]",
+    "streamer_button": "(//div[contains(@class, 'doaFqY')]//button)[1]",
+    "last_video": "(//div[contains(@class, 'eynyeD')])[10]"
+}
